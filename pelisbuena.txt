@@ -1,0 +1,80 @@
+
+
+function MayorRecaudacion() {
+    peliculas = document.getElementsByTagName('table')[0].getElementsByTagName('tr')
+    str='[';
+    for (i=2;i<peliculas.length;i++) {
+      tit = peliculas[i].children[1].textContent.replace("\n","");
+      rec  = peliculas[i].children[5].textContent.replace("\n","").replace("$","").replace(".","").replace(".","").replace(".","");
+      pre = peliculas[i].children[6].textContent.replace("\n","").replace("$","").replace(".","").replace(".","").replace(".","");
+      an = peliculas[i].children[7].textContent.replace("\n","");
+      str += "[" + rec
+      str += "," + pre
+      str += "," + an
+      str += ",'" + peliculas[i].children[1].textContent.replace("\n","") + "'],"
+      str += "\n"
+    }
+      str += "[,,]]"
+    return str;
+}
+MayorRecaudacion()
+
+obj=str
+
+ <html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+	for  (i=1;i<obj.length;i++) {
+	dinero="[" + obj[i].children[4] + obj[i].children[1] + obj[i].children[2] + "]"
+	}
+
+
+        var data = google.visualization.arrayToDataTable([
+          ['Titulo', 'Recaudación', 'Presupuesto', 'Profit'],
+          dinero
+        ]);
+
+        var options = {
+          chart: {
+            title: 'Recaudación de peliculas',
+            subtitle: 'Recaudación y Presupuesto',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: 800px; height: 500px;"></div>
+  </body>
+</html>
+
+
+function MayorRecaudacion() {
+    peliculas = document.getElementsByTagName('table')[0].getElementsByTagName('tr')
+    str='[';
+    for (i=2;i<peliculas.length;i++) {
+      tit = peliculas[i].children[1].textContent.replace("\n","");
+      rec  = peliculas[i].children[5].textContent.replace("\n","").replace("$","").replace(".","").replace(".","").replace(".","");
+      pre = peliculas[i].children[6].textContent.replace("\n","").replace("$","").replace(".","").replace(".","").replace(".","");
+      an = peliculas[i].children[7].textContent.replace("\n","");
+      str += "[" + rec
+      str += "," + pre
+      str += "," + an
+      str += ",'" + peliculas[i].children[1].textContent.replace("\n","") + "'],"
+      str += "\n"
+    }
+      str += "[,,]]"
+    return str;
+}
+MayorRecaudacion()
+
+     obj=str
